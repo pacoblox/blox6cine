@@ -37,7 +37,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,8 +44,73 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
-
+       <form>
+     <h3>Lista de Salas</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+     <th>Id Sala</th>
+        <th>Nombre Sala</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <?php include_once 'dbcreotanda.php' ?>
+        </form>
+           
+           
+    </tbody>
+  </table>
+        <form>
+     <h3>Lista de Peliculas</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+     <th>Id pelicula</th>
+        <th>Nombre pelicula</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <?php include_once 'dbtandpelicula.php' ?>
+        </form>
+           
+           
+    </tbody>
+  </table>
+      
+      <div class="container">
+			<div class="jumbotron">
+				<p>Ingreso de Tandas</p>
+			</div>
+		</div>
+		<div class="container">
+		 <form action="CreoTanda.php" method="POST">
+	
+		<div class="form-group">
+            	<label for="Name">Identificacion Sala:</label>
+			<input type="text" class="form-control" id="Id_Sala" name="Id_Sala"required>
+			</div>	
+				<div class="form-group">
+			<label for="Name">Identificacion Pelicula:</label>
+			<input type="text" class="form-control" id="Id_pelicula" name="Id_pelicula"required>
+			</div>	
+			
+			<div class="form-group">
+			<label for="Name">Horario:</label>
+			<input type="text" class="form-control" id="horario" name="horario"required>
+			</div>	
+				
+			<div class="form-group">
+			<label for="Name">Ubicacion Cine:</label>
+			<input type="text" class="form-control" id="Id_UbiCine" name="Id_UbiCine"required>
+			</div>	
+		
+		<button type="submit" class="btn btn-default">Agregar</button>
+		<br>
+			<br>
+			<br>
+	
   
 </div>
 <footer class="navbar navbar-default">
@@ -57,4 +121,4 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>
-</html>  
+</html> 

@@ -31,7 +31,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      
       <ul class="nav navbar-nav navbar-right">
-          <li role="presentation"><a href="Localizaciones.php">Localizaciones</a></li>          
+             <li role="presentation"><a href="Localizaciones.php">Localizaciones</a></li>          
           <li role="presentation"><a href="Cines.php">Cines</a></li>
          <li role="presentation"><a href="Salas.php">Salas</a></li>
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
@@ -46,7 +46,38 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="container-container-fluid">
-
+<h3>Lista de Cines</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Identificacion Ubicacion Cine</th>
+        <th>Identificacion Manager</th>    
+          <th>Nombre del cine</th>        
+        <th>Telefono</th>
+          <th>Identificacion Ciudad</th>
+          <th>Direccion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php include_once 'dbCinesCompleto.php' ?>
+        </form>
+    </tbody>
+  </table>
+  <div class="table table-hover">
+    <thead>
+      <tr>
+        <th>
+        <a href="Crear_Cine.php" type="button" class="btn btn-info">Crear Cine</a>
+        </th>
+          <a href="Borrar_Cine.php" type="button" class="btn btn-info">Borrar Cine</a>          
+        <th>
+              <a href="Modificar_Cine.php" type="button" class="btn btn-info">Modificar Cine</a>    
+          
+        </th>
+      </tr>
+    </thead>
+  </div>
+</div>
   
 </div>
 <footer class="navbar navbar-default">
@@ -58,3 +89,5 @@
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>  
+">
+ 

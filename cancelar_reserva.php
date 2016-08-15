@@ -31,30 +31,51 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      
       <ul class="nav navbar-nav navbar-right">
-          <li role="presentation"><a href="Localizaciones.php">Localizaciones</a></li>          
-          <li role="presentation"><a href="Cines.php">Cines</a></li>
-         <li role="presentation"><a href="Salas.php">Salas</a></li>
-          <li role="presentation"><a href="Peliculas.php">Películas</a></li>
-          <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
-          <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
-          
-          
+    <li role="presentation"><a href="cartelera.php">Cartelera</a></li>
+    <li role="presentation"><a href="boletos.php">Boletos</a></li>
+  <li role="presentation"><a href="contactenos.php">Contáctenos</a></li>
+
+
           
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
+     <h3>Informacion de Tickets comprados</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+     <th> Numero de Ticket</th>
+        <th>Sala</th>
+          <th>Pelicula</th>
+           <th>Precio</th>
+           <th>Numero de tarjeta</th>
+           <th>Fecha</th>
 
-  
-</div>
-<footer class="navbar navbar-default">
-     <p class="text-center"><strong>UH @2016 Diseño de Aplicaciones 2do Cuatrimestre 2016 L N</strong></p>
-</footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>  
+        
+      </tr>
+    </thead>
+    <tbody>
+      <?php include_once 'dbticket_usuario.php' ?>
+       
+    </tbody>
+  </table>
+       <div class="container">
+			<div class="jumbotron">
+				<p>Cancelar Reserva</p>
+			</div>
+		</div>
+		<div class="container">
+		 <form action="Borroreserva.php" method="POST">
+	
+		<div class="form-group">
+			<label for="Name">Id_Ticket:</label>
+			<input type="text" class="form-control" id="Id_Ticket" name="Id_Ticket"required>
+			</div>	
+			
+		
+		<button type="submit" class="btn btn-default">cancelar</button>
+		<br>
+			<br>
+			<br>
+	

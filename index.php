@@ -26,7 +26,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">BLOX6 MOvIES</a>
+      <a class="navbar-brand" href="index.php">BLOX6 MOvIES</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,7 +56,11 @@
     <div class="carousel-inner" role="listbox">
 
       <div class="item active">
-        <img src="movies/jasonbourne.jpg" alt="Bourne" width="800" height="600">
+          
+<iframe width="800" height="600" src="https://www.youtube.com/embed/CmRih_VtVAs?autoplay=1">
+</iframe>
+
+        
         <div class="carousel-caption">
           <h3>Jason Bourne</h3>
           <p>Bourne is back and you know his name!!</p>

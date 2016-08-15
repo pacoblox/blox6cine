@@ -37,7 +37,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,8 +44,57 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
+       <form>
+      <h3>Lista de Cines</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Ubicacion Sala</th>
+        <th>Ubicacion Ubicacion Cine</th>
+            <th>Cantidad asientos VIP</th>
+            <th>Cantidad asientos Normales</th>
+    
+        
 
+
+              <tbody>
+      </tr>
+   
+ <?php include_once 'dbSalas.php' ?>
+</tbody>
+  </table>
+       </thead>
+       
+      
+      <div class="container">
+			<div class="jumbotron">
+				<p>Modificar Salas</p>
+			</div>
+		</div>
+		<div class="container">
+		 <form action="modificarsalas.php" method="POST">
+	
+
+				<div class="form-group">
+			<label for="Name">Identificacion de Sala:</label>
+			<input type="text" class="form-control" id="Id_Sala" name="Id_Sala"required>
+			</div>	
+             <div class="form-group">
+			<label for="Name">Cantidad Asientos VIP:</label>
+			<input type="text" class="form-control" id="Cantidad_AsientVIP" name="Cantidad_AsientVIP"required>
+			</div>	
+			
+			<div class="form-group">
+			<label for="Name">Cantidad de Asientos Normales:</label>
+			<input type="text" class="form-control" id="Cantidad_AsientNorm" name="Cantidad_AsientNorm"required>
+			</div>	
+		
+		
+		<button type="submit" class="btn btn-default">Modificar</button>
+		<br>
+			<br>
+			<br>
+	
   
 </div>
 <footer class="navbar navbar-default">

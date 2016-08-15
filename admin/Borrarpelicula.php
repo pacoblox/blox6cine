@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,7 +38,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,16 +45,70 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
 
-  
-</div>
-<footer class="navbar navbar-default">
-     <p class="text-center"><strong>UH @2016 Diseño de Aplicaciones 2do Cuatrimestre 2016 L N</strong></p>
-</footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>  
+
+
+
+
+
+<div class="container">
+	
+	<div class="jumbotron">
+	<h2 class="brandMessage">Pelicula Borrada</h2>
+	<h6 class="brandMessage">Identificacion de la pelicula: </h6><?php echo $_POST["Id_Pelicula"]; ?> <br>
+
+
+
+	<?php
+	
+
+	
+$serverName = "172.29.185.108"; 
+$connectionInfo = array( "Database"=>"Sistema_Cine", "UID"=>"sa", "PWD"=>"Password1.");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
+	
+   	$phpId_Pelicula = $_POST["Id_Pelicula"];     
+
+
+	
+    echo $phpId_Pelicula;
+	
+	
+if ($conn){
+    echo "connected";
+    if(($result = sqlsrv_query($conn,"DELETE FROM Pelicula where (Id_Pelicula) =('$phpId_Pelicula')")) !== false){  
+		 while( $obj = sqlsrv_fetch_object( $result )) {
+			       echo"borrada correctamente";
+             
+         
+             
+             
+	//$recurso=sqlsrv_prepare($result);
+	//$recurso=sqlsrv_prepare($result);
+	}
+		//elseif (sqlsrv_execute($result)){
+      //echo"Agregado correctamente";
+		//}
+		
+		//else{
+      //echo"No Agregado";
+//}
+        // while( $obj = sqlsrv_fetch_object( $result )) {
+			// echo '<tr>';
+			// echo '<td>'.$obj->Id_topic.'</td>';
+			// echo '<td>'.$obj->Name.'</td>';
+		
+        }
+    
+else{
+    die(print_r(sqlsrv_errors(), true));
+	
+}
+sqlsrv_close( $conn );
+
+	
+	}
+
+
+	
+	?>

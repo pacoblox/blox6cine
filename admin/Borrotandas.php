@@ -37,7 +37,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,8 +44,45 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
-
+       <form>
+     <h3>Lista de Tandas</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+  <th>Identificacion de Tandas</th> 
+             <th>Identificacion de Salas</th>  
+             <th>Identificacion de Pelicula</th>  
+    
+             <th>Identificacion Cine</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <?php include_once 'dbTandas.php' ?>
+        </form>
+           
+           
+    </tbody>
+  </table>
+  
+      
+      <div class="container">
+			<div class="jumbotron">
+				<p>Borrar Tandas</p>
+			</div>
+		</div>
+		<div class="container">
+		 <form action="Borrotand.php" method="POST">
+	
+		<div class="form-group">
+            	<label for="Name">Identificacion Tanda:</label>
+			<input type="text" class="form-control" id="Id_tandas" name="Id_tandas"required>
+			</div>	
+				
+		<button type="submit" class="btn btn-default">Borrar</button>
+		<br>
+			<br>
+			<br>
+	
   
 </div>
 <footer class="navbar navbar-default">
@@ -57,4 +93,4 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>
-</html>  
+</html> 

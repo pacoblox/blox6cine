@@ -37,7 +37,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,8 +44,46 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
-
+       <form>
+     <h3>Lista de Peliculas</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+       <th>Identificacion Pelicula</th>
+        <th>Nombre_Pelicula</th>   
+             
+        <th>Duracion</th>
+          <th>Categoria</th>
+          <th>Descripcion</th>
+            <th>Tipo de Censura</th>        
+            <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php include_once 'dbPeliculas.php' ?>
+        </form>
+    </tbody>
+  </table>
+      
+      <div class="container">
+			<div class="jumbotron">
+				<p>Borrar Peliculas</p>
+			</div>
+		</div>
+		<div class="container">
+		 <form action="Borrarpelicula.php" method="POST">
+	
+		<div class="form-group">
+			<label for="Name">Identificacion Pelicula:</label>
+			<input type="text" class="form-control" id="Id_Pelicula" name="Id_Pelicula"required>
+			</div>	
+			
+		
+		<button type="submit" class="btn btn-default">Borrar</button>
+		<br>
+			<br>
+			<br>
+	
   
 </div>
 <footer class="navbar navbar-default">
@@ -57,4 +94,4 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>
-</html>  
+</html> 

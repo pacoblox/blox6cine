@@ -37,7 +37,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,8 +44,52 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
+      <div class="container-container-fluid">
+       
+      <h3>Lista de Cines</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Ubicacion Sala</th>
+        <th>Ubicacion Ubicacion Cine</th>
+            <th>Cantidad asientos VIP</th>
+            <th>Cantidad asientos Normales</th>
+    
+       
 
+
+          
+      </tr>
+    </thead>
+          <tbody>
+              
+
+
+      
+        <?php include_once 'dbSalas.php' ?>
+                </tbody>
+        </table>
+      
+      <div class="container">
+			<div class="jumbotron">
+				<p>Borrar  Salas</p>
+			</div>
+		</div>
+		<div class="container">
+		 <form action="salaborrada.php" method="POST">
+	
+
+				<div class="form-group">
+			<label for="Name">Identificacion de Sala:</label>
+			<input type="text" class="form-control" id="Id_Sala" name="Id_Sala"required>
+			</div>	
+		
+		
+		<button type="submit" class="btn btn-default">Borrar</button>
+		<br>
+			<br>
+			<br>
+	
   
 </div>
 <footer class="navbar navbar-default">

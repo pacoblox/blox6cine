@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,23 +32,85 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      
       <ul class="nav navbar-nav navbar-right">
-          <li role="presentation"><a href="Localizaciones.php">Localizaciones</a></li>          
-          <li role="presentation"><a href="Cines.php">Cines</a></li>
-         <li role="presentation"><a href="Salas.php">Salas</a></li>
-          <li role="presentation"><a href="Peliculas.php">Películas</a></li>
-          <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
-          <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
-          
-          
+    <li role="presentation"><a href="cartelera.php">Cartelera</a></li>
+    <li role="presentation"><a href="boletos.php">Boletos</a></li>
+  <li role="presentation"><a href="contactenos.php">Contáctenos</a></li>
+<li role="presentation"><a href="contactenos.php">
+
           
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
 
-  
+
+<div class="container">
+	
+	<div class="jumbotron">
+	<h2 class="brandMessage">Ticket cancelado</h2>
+	<h6 class="brandMessage">Identificacion del Ticket: </h6><?php echo $_POST["Id_Ticket"]; ?> <br>
+
+
+
+	<?php
+	
+
+	
+$serverName = "172.29.185.108"; 
+$connectionInfo = array( "Database"=>"Sistema_Cine", "UID"=>"sa", "PWD"=>"Password1.");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
+	
+   	$phpId_Ticket= $_POST["Id_Ticket"];     
+
+
+	
+    echo $phpId_Ticket;
+	
+	
+if ($conn){
+    echo "connected";
+    if(($result = sqlsrv_query($conn,"DELETE FROM Ticket where (Id_Ticket) =('$phpId_Ticket')")) !== false){  
+		 while( $obj = sqlsrv_fetch_object( $result )) {
+			       echo"borrada correctamente";
+             
+         
+             
+             
+	//$recurso=sqlsrv_prepare($result);
+	//$recurso=sqlsrv_prepare($result);
+	}
+		//elseif (sqlsrv_execute($result)){
+      //echo"Agregado correctamente";
+		//}
+		
+		//else{
+      //echo"No Agregado";
+//}
+        // while( $obj = sqlsrv_fetch_object( $result )) {
+			// echo '<tr>';
+			// echo '<td>'.$obj->Id_topic.'</td>';
+			// echo '<td>'.$obj->Name.'</td>';
+		
+        }
+    
+else{
+    die(print_r(sqlsrv_errors(), true));
+	
+}
+sqlsrv_close( $conn );
+
+	
+	}
+
+
+	
+	?>
+
+	
+	
+	
+	
+    
 </div>
 <footer class="navbar navbar-default">
      <p class="text-center"><strong>UH @2016 Diseño de Aplicaciones 2do Cuatrimestre 2016 L N</strong></p>

@@ -31,7 +31,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      
       <ul class="nav navbar-nav navbar-right">
-          <li role="presentation"><a href="Localizaciones.php">Localizaciones</a></li>          
+                <li role="presentation"><a href="Localizaciones.php">Localizaciones</a></li>          
           <li role="presentation"><a href="Cines.php">Cines</a></li>
          <li role="presentation"><a href="Salas.php">Salas</a></li>
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
@@ -45,8 +45,66 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
+       <form>
+     <h3>lista de Tandas</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+       
+     
+            <th>Identificacion de Tandas</th> 
+             <th>Identificacion de Salas</th>  
+             <th>Identificacion de Pelicula</th>  
+    
+             <th>Identificacion Cine</th>  
+      
+      </tr>
+    </thead>
+    <tbody>
+      <?php include_once 'dbTandas.php' ?>
+        </form>
+    </tbody>
+  </table>
+      
+      <div class="container">
+			<div class="jumbotron">
+				<p>Tandas</p>
+			</div>
+		</div>
+    
+		<div class="container">
+		 <form action="Creotandas.php" method="POST">		
+		
+		<button type="submit" class="btn btn-info">Agregar</button>
+		<br>
+             
+			<br>
+			<br>
+             </div>
+            
+            
+             <div class="container">
+                 
+		  <th>
+        <a href="Borrotandas.php" type="submit" class="btn btn-info">Borrar </a>
+       
+			
+		
+			<br>
+			<br>
+             </div>
+                 
+             <div class="container">
+	    <a href="modificotandas.php" type="submit" class="btn btn-info">Modificar </a>
+	
 
+		
+		
+		
+		<br>
+			<br>
+			<br>
+             
   
 </div>
 <footer class="navbar navbar-default">
@@ -57,4 +115,4 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>
-</html>  
+</html> 

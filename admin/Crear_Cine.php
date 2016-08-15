@@ -37,7 +37,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,8 +44,61 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
-
+       <form>
+     <h3>Lista de Cines</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Identificacion Ubicacion Cine</th>
+        <th>Identificacion Manager</th>    
+          <th>Nombre del cine</th>        
+        <th>Telefono</th>
+          <th>Identificacion Ciudad</th>
+          <th>Direccion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php include_once 'dbCinesCompleto.php' ?>
+        </form>
+    </tbody>
+  </table>
+      
+      <div class="container">
+			<div class="jumbotron">
+				<p>Ingreso de Cines</p>
+			</div>
+		</div>
+		<div class="container">
+		 <form action="CreoCine.php" method="POST">
+	
+		<div class="form-group">
+			<label for="Name">Id_Manager:</label>
+			<input type="text" class="form-control" id="Id_Manager" name="Id_Manager"required>
+			</div>	
+			
+			<div class="form-group">
+			<label for="Name">Ubicacion Nombre:</label>
+			<input type="text" class="form-control" id="Ubicacion_Nombre" name="Ubicacion_Nombre"required>
+			</div>	
+				<div class="form-group">
+			<label for="Name"> Telefono:</label>
+			<input type="text" class="form-control" id="Ubicacion_Telefono" name="Ubicacion_Telefono"required>
+			</div>	
+             	<div class="form-group">
+			<label for="Name">Identificacion Ciudad:</label>
+			<input type="text" class="form-control" id="Id_Ciudad" name="Id_Ciudad"required>
+			</div>	
+             	<div class="form-group">
+			<label for="Name"> Direccion:</label>
+			<input type="text" class="form-control" id="Ubicacion_direccion" name="Ubicacion_direccion"required>
+			</div>	
+		
+		
+		<button type="submit" class="btn btn-default">Agregar</button>
+		<br>
+			<br>
+			<br>
+	
   
 </div>
 <footer class="navbar navbar-default">
@@ -57,4 +109,4 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>
-</html>  
+</html> 

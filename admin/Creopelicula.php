@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,7 +38,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,9 +45,90 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
 
-  
+
+
+
+<div class="container">
+	
+	<div class="jumbotron">
+	<h2 class="brandMessage">Pelicula Creada</h2>
+	<h6 class="brandMessage">Nombre de Pelicula: </h6><?php echo $_POST["Nombre_Pelicula"]; ?> <br>
+	<h6 class="brandMessage">Duracion: </h6><?php echo $_POST["Duracion"]; ?><br>
+		<h6 class="brandMessage">Categoria: </h6><?php echo $_POST["Categoria"]; ?><br>  
+        	<h6 class="brandMessage">Descripcion: </h6><?php echo $_POST["Descripcion"]; ?><br> 
+        	<h6 class="brandMessage">Tipo de Censura: </h6><?php echo $_POST["Tipo_Censura"]; ?><br>
+        <h6 class="brandMessage">Imagen: </h6><?php echo $_POST["Imagen"]; ?><br>
+		<h6 class="brandMessage">Precio: </h6><?php echo $_POST["Precio"]; ?><br>
+
+        
+               
+
+	<?php
+	
+
+	
+$serverName = "172.29.185.108"; 
+$connectionInfo = array( "Database"=>"Sistema_Cine", "UID"=>"sa", "PWD"=>"Password1.");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
+	$phpNombre_Pelicula = $_POST["Nombre_Pelicula"];
+	$phpDuracion = $_POST["Duracion"];
+   	$phpCategoria = $_POST["Categoria"];
+       	$phpDescripcion = $_POST["Descripcion"];   
+      	$phpTipo_Censura = $_POST["Tipo_Censura"];
+           	$phpImagen = $_POST["Imagen"];
+   	$phpPrecio= $_POST["Precio"];     
+          
+
+
+	echo $phpNombre_Pelicula;
+	echo $phpDuracion;
+    echo $phpCategoria;
+       echo $phpDescripcion; 
+    echo $phpTipo_Censura;
+    echo $phpPrecio;
+	
+if ($conn){
+    echo "connected";
+    if(($result = sqlsrv_query($conn,"INSERT into Pelicula (Nombre_Pelicula,Duracion,Categoria,Descripcion,Tipo_Censura,Imagen,Precio) Values ('$phpNombre_Pelicula','$phpDuracion','$phpCategoria','$phpDescripcion','$phpTipo_Censura','$phpImagen','$phpPrecio')")) !== false){  
+		 while( $obj = sqlsrv_fetch_object( $result )) {
+			       echo"Agregado correctamente";
+             
+         
+	//$recurso=sqlsrv_prepare($result);
+	}
+		//elseif (sqlsrv_execute($result)){
+      //echo"Agregado correctamente";
+		//}
+		
+		//else{
+      //echo"No Agregado";
+//}
+        // while( $obj = sqlsrv_fetch_object( $result )) {
+			// echo '<tr>';
+			// echo '<td>'.$obj->Id_topic.'</td>';
+			// echo '<td>'.$obj->Name.'</td>';
+		
+        }
+    
+else{
+    die(print_r(sqlsrv_errors(), true));
+	
+}
+sqlsrv_close( $conn );
+
+	
+	}
+
+
+	
+	?>
+
+	
+	
+	
+	
+    
 </div>
 <footer class="navbar navbar-default">
      <p class="text-center"><strong>UH @2016 Diseño de Aplicaciones 2do Cuatrimestre 2016 L N</strong></p>

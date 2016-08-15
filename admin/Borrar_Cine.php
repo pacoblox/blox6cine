@@ -37,7 +37,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,8 +44,44 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
-
+       <form>
+     <h3>Lista de Cines</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Identificacion Ubicacion Cine</th>
+        <th>Identificacion Manager</th>    
+          <th>Nombre del cine</th>        
+        <th>Telefono</th>
+          <th>Identificacion Ciudad</th>
+          <th>Direccion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php include_once 'dbCinesCompleto.php' ?>
+        </form>
+    </tbody>
+  </table>
+      
+      <div class="container">
+			<div class="jumbotron">
+				<p>Borrar  Cines</p>
+			</div>
+		</div>
+		<div class="container">
+		 <form action="BorroCine.php" method="POST">
+	
+		<div class="form-group">
+			<label for="Name">Id_Cine:</label>
+			<input type="text" class="form-control" id="Id_UbiCine" name="Id_UbiCine"required>
+			</div>	
+			
+		
+		<button type="submit" class="btn btn-default">Borrar</button>
+		<br>
+			<br>
+			<br>
+	
   
 </div>
 <footer class="navbar navbar-default">

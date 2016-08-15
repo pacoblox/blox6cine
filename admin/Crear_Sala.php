@@ -37,7 +37,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,9 +44,55 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
-
-  
+      <div class="container-container-fluid">
+      <h3>Lista de Cines</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Ubicacion Cine</th>
+        <th>Ubicacion Nombre</th>
+             </tr>
+    </thead>
+      <tbody>
+          <?php include_once 'db_Cines.php' ?>
+   
+    </tbody>
+  </table>
+    </tr>
+    </thead>
+      
+       
+      
+      <div class="container">
+			<div class="jumbotron">
+				<p>Ingreso de Salas</p>
+			</div>
+		</div>
+		<div class="container">
+		 <form action="salacreada.php" method="POST">
+	
+		<div class="form-group">
+			<label for="Name">Cantidad Asientos VIP:</label>
+			<input type="text" class="form-control" id="Cantidad_AsientVIP" name="Cantidad_AsientVIP"required>
+			</div>	
+			
+			<div class="form-group">
+			<label for="Name">Cantidad de Asientos Normales:</label>
+			<input type="text" class="form-control" id="Cantidad_AsientNorm" name="Cantidad_AsientNorm"required>
+			</div>	
+				<div class="form-group">
+			<label for="Name">Ubicacion Cine:</label>
+			<input type="text" class="form-control" id="Id_UbiCine" name="Id_UbiCine"required>
+			</div>	
+		
+		
+		<button type="submit" class="btn btn-default">Agregar</button>
+		<br>
+			<br>
+			<br>
+	
+            
+    
 </div>
 <footer class="navbar navbar-default">
      <p class="text-center"><strong>UH @2016 Diseño de Aplicaciones 2do Cuatrimestre 2016 L N</strong></p>

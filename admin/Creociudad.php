@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,7 +38,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,9 +45,81 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
 
-  
+
+
+
+<div class="container">
+	
+	<div class="jumbotron">
+	<h2 class="brandMessage">Ciudad Creada</h2>
+        <h6 class="brandMessage">Identificacion Pais: </h6><?php echo $_POST["Id_Pais"]; ?> <br>
+	<h6 class="brandMessage">Nombre de Ciudad: </h6><?php echo $_POST["Nombre_Ciudad"]; ?> <br>
+	<h6 class="brandMessage">Zona Horaria: </h6><?php echo $_POST["Zona_horaria"]; ?><br>   
+        
+        
+		
+        
+               
+
+	<?php
+	
+
+	
+$serverName = "172.29.185.108"; 
+$connectionInfo = array( "Database"=>"Sistema_Cine", "UID"=>"sa", "PWD"=>"Password1.");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
+      	$phpId_Pais = $_POST["Id_Pais"];  
+	$phpNombre_Ciudad = $_POST["Nombre_Ciudad"];
+	$phpZona_horaria = $_POST["Zona_horaria"];
+
+
+
+	echo $phpNombre_Ciudad;
+	echo $phpZona_horaria;
+ 
+	
+if ($conn){
+    echo "connected";
+    if(($result = sqlsrv_query($conn,"INSERT into Ciudad (Id_Pais,Nombre_Ciudad,Zona_horaria) Values ('$phpId_Pais','$phpNombre_Ciudad','$phpZona_horaria')")) !== false){  
+		 while( $obj = sqlsrv_fetch_object( $result )) {
+			       echo"Agregado correctamente";
+             
+         
+	//$recurso=sqlsrv_prepare($result);
+	}
+		//elseif (sqlsrv_execute($result)){
+      //echo"Agregado correctamente";
+		//}
+		
+		//else{
+      //echo"No Agregado";
+//}
+        // while( $obj = sqlsrv_fetch_object( $result )) {
+			// echo '<tr>';
+			// echo '<td>'.$obj->Id_topic.'</td>';
+			// echo '<td>'.$obj->Name.'</td>';
+		
+        }
+    
+else{
+    die(print_r(sqlsrv_errors(), true));
+	
+}
+sqlsrv_close( $conn );
+
+	
+	}
+
+
+	
+	?>
+
+	
+	
+	
+	
+    
 </div>
 <footer class="navbar navbar-default">
      <p class="text-center"><strong>UH @2016 Diseño de Aplicaciones 2do Cuatrimestre 2016 L N</strong></p>

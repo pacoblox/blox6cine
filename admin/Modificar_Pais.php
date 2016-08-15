@@ -37,7 +37,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,8 +44,47 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
-
+       <form>
+     <h3>Lista de paises</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+       <th>Identificacion Pais</th>
+        <th>Nombre Pais</th>   
+      
+      </tr>
+    </thead>
+    <tbody>
+      <?php include_once 'dbpais.php' ?>
+        </form>
+    </tbody>
+  </table>
+      
+      <div class="container">
+			<div class="jumbotron">
+				<p>Modificar de Pais</p>
+			</div>
+		</div>
+		<div class="container">
+		 <form action="modificarpais.php" method="POST">
+             
+             <div class="form-group">
+			<label for="Name">Identificacion Pais:</label>
+			<input type="text" class="form-control" id="Id_Pais" name="Id_Pais"required>
+			</div>	
+	
+		<div class="form-group">
+			<label for="Name">Nombre Pais:</label>
+			<input type="text" class="form-control" id="Nombre_Pais" name="Nombre_Pais"required>
+			</div>	
+			
+		
+		
+		<button type="submit" class="btn btn-default">Modificar</button>
+		<br>
+			<br>
+			<br>
+	
   
 </div>
 <footer class="navbar navbar-default">
@@ -57,4 +95,4 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>
-</html>  
+</html> 

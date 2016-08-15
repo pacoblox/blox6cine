@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,7 +38,6 @@
           <li role="presentation"><a href="Peliculas.php">Películas</a></li>
           <li role="presentation"><a href="Cartelera.php">Cartelera</a></li>
           <li role="presentation"><a href="Ventas.php">Ventas</a></li>
-                 <li role="presentation"><a href="Reportes.php">Reportes de Ocupacion</a></li>
           
           
           
@@ -45,9 +45,83 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-container-fluid">
 
-  
+
+
+
+<div class="container">
+	
+	<div class="jumbotron">
+	<h2 class="brandMessage">Cine Creado</h2>
+	<h6 class="brandMessage">Id_Manager: </h6><?php echo $_POST["Id_Manager"]; ?> <br>
+	<h6 class="brandMessage">Ubicacion Nombre: </h6><?php echo $_POST["Ubicacion_Nombre"]; ?><br>
+		<h6 class="brandMessage">Telefono: </h6><?php echo $_POST["Ubicacion_Telefono"]; ?><br>        
+        	<h6 class="brandMessage">Identificacion Ciudad: </h6><?php echo $_POST["Id_Ciudad"]; ?><br>
+		<h6 class="brandMessage">Direccion: </h6><?php echo $_POST["Ubicacion_direccion"]; ?><br>
+
+
+	<?php
+	
+
+	
+$serverName = "172.29.185.108"; 
+$connectionInfo = array( "Database"=>"Sistema_Cine", "UID"=>"sa", "PWD"=>"Password1.");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
+	$phpId_Manager = $_POST["Id_Manager"];
+	$phpUbicacion_Nombre = $_POST["Ubicacion_Nombre"];
+   	$phpUbicacion_Telefono = $_POST["Ubicacion_Telefono"];     
+      	$phpId_Ciudad = $_POST["Id_Ciudad"];
+   	$phpUbicacion_direccion = $_POST["Ubicacion_direccion"];     
+          
+
+
+	echo $phpId_Manager;
+	echo $phpUbicacion_Nombre;
+    echo $phpUbicacion_Telefono;
+	  echo $phpId_Ciudad;
+          echo $phpUbicacion_direccion;
+	
+if ($conn){
+    echo "connected";
+    if(($result = sqlsrv_query($conn,"INSERT into Ubicacion_Cine (Id_Manager,Ubicacion_Nombre,Ubicacion_Telefono,Id_Ciudad,Ubicacion_direccion) Values ('$phpId_Manager','$phpUbicacion_Nombre','$phpUbicacion_Telefono','$phpId_Ciudad','$phpUbicacion_direccion')")) !== false){  
+		 while( $obj = sqlsrv_fetch_object( $result )) {
+			       echo"Agregado correctamente";
+             
+         
+	//$recurso=sqlsrv_prepare($result);
+	}
+		//elseif (sqlsrv_execute($result)){
+      //echo"Agregado correctamente";
+		//}
+		
+		//else{
+      //echo"No Agregado";
+//}
+        // while( $obj = sqlsrv_fetch_object( $result )) {
+			// echo '<tr>';
+			// echo '<td>'.$obj->Id_topic.'</td>';
+			// echo '<td>'.$obj->Name.'</td>';
+		
+        }
+    
+else{
+    die(print_r(sqlsrv_errors(), true));
+	
+}
+sqlsrv_close( $conn );
+
+	
+	}
+
+
+	
+	?>
+
+	
+	
+	
+	
+    
 </div>
 <footer class="navbar navbar-default">
      <p class="text-center"><strong>UH @2016 Diseño de Aplicaciones 2do Cuatrimestre 2016 L N</strong></p>
